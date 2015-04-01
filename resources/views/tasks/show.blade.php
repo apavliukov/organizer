@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <p><a href="{{ route('tasks.index') }}"><< Все задачи</a></p>
+        <p><a href="{{ url('/tasks') }}"><< все задачи</a></p>
         
         <h2>Задача &laquo;{{ $task->name }}&raquo;</h2>
 

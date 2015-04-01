@@ -36,6 +36,8 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/') }}">Главная</a></li>
+                    <li><a href="{{ url('/events') }}">Мероприятия</a></li>
+                    <li><a href="{{ url('/tasks') }}">Задачи</a></li>
 				</ul>
 
 			</div>
