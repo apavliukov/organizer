@@ -17,7 +17,11 @@ class TasksController extends Controller {
 	{
 		$tasks = Task::all();
 
-		return view('tasks.index', compact('tasks'));
+		if (!$tasks->count()) {
+			return view('tasks.no-results');
+		} else {
+			return view('tasks.index', compact('tasks'));
+		}
 	}
 
 	/**

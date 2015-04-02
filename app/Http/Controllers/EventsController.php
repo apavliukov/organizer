@@ -17,7 +17,11 @@ class EventsController extends Controller {
 	{
 		$events = Event::all();
 
-		return view('events.index', compact('events'));
+		if (!$events->count()) {
+			return view('events.no-results');
+		} else {
+			return view('events.index', compact('events'));
+		}
 	}
 
 	/**

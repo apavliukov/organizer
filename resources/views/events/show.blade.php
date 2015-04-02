@@ -2,9 +2,8 @@
 
 @section('content')
     <div class="container">
-        <p><a href="{{ url('/events') }}"><< все мероприятия</a></p>
-
         <h2>Мероприятие &laquo;{{ $event->name }}&raquo;</h2>
+
         <div class="meta">
             <p>Дата создания : {{ $event->created_at }}</p>
             <p>Дата и время мероприятия : {{ $event->dateTime }}</p>
