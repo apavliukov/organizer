@@ -9,8 +9,6 @@ class EventsTableSeeder extends Seeder {
 		// Uncomment the below to wipe the table clean before populating
 		DB::table('events')->delete();
 
-		date_default_timezone_set('Europe/Moscow');
-
 		$events = array(
 			['id' => 1, 'name' => 'Event 1', 'slug' => 'event-1', 'dateTime' => date('Y-m-d H:i:s', strtotime("+1 day")), 'description' => 'Description 1', 'created_at' => new DateTime, 'updated_at' => new DateTime],
 			['id' => 2, 'name' => 'Event 2', 'slug' => 'event-2', 'dateTime' => date('Y-m-d H:i:s', strtotime("+7 days")), 'description' => 'Description 2', 'created_at' => new DateTime, 'updated_at' => new DateTime],

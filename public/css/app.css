@@ -5380,6 +5380,23 @@ button.close {
   border: 0;
   -webkit-appearance: none;
 }
+.front-page-container {
+  text-align: center;
+  vertical-align: middle;
+}
+.front-page-container .content {
+  text-align: center;
+  display: inline-block;
+  font-size: 24px;
+}
+.front-page-container .title {
+  font-size: 96px;
+  margin-bottom: 40px;
+  font-family: 'Lato', Arial, sans-serif;
+}
+.front-page-container img {
+  width: 20%;
+}
 .modal-open {
   overflow: hidden;
 }
@@ -6231,3 +6248,5 @@ label,
 .checkbox label {
   font-weight: 300;
 }
+
+/*# sourceMappingURL=app.css.map */

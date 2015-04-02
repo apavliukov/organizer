@@ -26,10 +26,3 @@ Route::bind('tasks', function($value, $route) {
 
 Route::resource('events', 'EventsController');
 Route::resource('tasks', 'TasksController');
-
-//Route::get('home', 'HomeController@index');
-
-//Route::controllers([
-//	'auth' => 'Auth\AuthController',
-//	'password' => 'Auth\PasswordController',
-//]);
