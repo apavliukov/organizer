@@ -4,7 +4,8 @@ use App\Event;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
+use Carbon\Carbon;
 
 class EventsController extends Controller {
 
@@ -15,7 +16,7 @@ class EventsController extends Controller {
 	 */
 	public function index()
 	{
-		$events = Event::all();
+		$events = Event::oldest('dateTime')->get();
 
 		if (!$events->count()) {
 			return view('events.no-results');
@@ -31,7 +32,14 @@ class EventsController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$data = [];
+		$data['day'] = Carbon::now()->day;
+		$data['month'] = Carbon::now()->month;
+		$data['year'] = Carbon::now()->year;
+		$data['hour'] = Carbon::now()->hour;
+		$data['minute'] = Carbon::now()->minute;
+
+		return view('events.create', compact('data'));
 	}
 
 	/**
@@ -41,7 +49,22 @@ class EventsController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$input = Request::all();
+
+		$event = Event::create($input);
+
+		// Т.к. поле "slug" не заполняется в форме,
+		// то заполняем вручную
+		$slug = $input['name'];
+		$event->setAttribute('slug', $slug);
+
+		// Вручную собираем дату из полей формы
+		$dateTime = $input['year'].'-'.$input['month'].'-'.$input['day'].' '.$input['hour'].':'.$input['minute'].':'.'00';
+		$event->setAttribute('dateTime', $dateTime);
+
+		$event->update(['slug', 'dateTime'], [$slug, $dateTime]);
+
+		return redirect('events');
 	}
 
 	/**
